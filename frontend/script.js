@@ -19,5 +19,5 @@ button.addEventListener("click", async function () {
     document.getElementById("error").innerText = "Error: " + data.error;
     document.getElementById("explanation").innerText = "Explanation: " + data.explanation;
     document.getElementById("fix").innerText = "Suggested Fix: " + data.fix;
-
+    document.getElementById("complexity").innerText = "Time Complexity: " + data.complexity;
 });
