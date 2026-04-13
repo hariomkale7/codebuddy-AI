@@ -1,30 +1,150 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>CodeBuddy AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBuddy AI | AI-powered coding mentor for developers</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<h1>CodeBuddy AI</h1>
-<p1>Your AI Coding Mentor</p1>
+    <div class="page-shell">
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">AI-powered coding mentor for developers</p>
+                <h1>CodeBuddy AI</h1>
+                <p class="lead">
+                    Detect Python mistakes, understand why they happen, estimate runtime complexity,
+                    and pull GitHub repository insights into one developer-friendly workspace.
+                </p>
+                <div class="hero-actions">
+                    <button type="button" class="secondary-button" id="loadSampleBtn">Load Demo Snippet</button>
+                    <a class="ghost-link" href="#repo-form">Jump to Repository Analyzer</a>
+                </div>
+            </div>
+            <div class="hero-highlights">
+                <article class="highlight-card">
+                    <span class="highlight-label">Syntax intelligence</span>
+                    <strong>Python compile() checks</strong>
+                </article>
+                <article class="highlight-card">
+                    <span class="highlight-label">Complexity review</span>
+                    <strong>AST-based loop depth analysis</strong>
+                </article>
+                <article class="highlight-card">
+                    <span class="highlight-label">Engineering insights</span>
+                    <strong>GitHub repository metadata lookup</strong>
+                </article>
+            </div>
+        </header>
 
-<h2>Paste Your Code</h2>
+        <main class="dashboard">
+            <section class="panel panel-wide">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Core Feature 01</p>
+                        <h2>AI Code Error Explainer</h2>
+                    </div>
+                    <span class="badge">Python only</span>
+                </div>
 
-<textarea id="codeInput" rows="10" cols="80"></textarea>
-<br><br>
+                <form id="code-form" class="panel-form">
+                    <label for="codeInput" class="field-label">Paste Python code</label>
+                    <textarea id="codeInput" rows="14" placeholder="for i in range(10)
+    print(i)"></textarea>
+                    <div class="form-actions">
+                        <button type="submit" class="primary-button">Analyze Code</button>
+                        <p id="analysisStatus" class="status-text">Ready when you are.</p>
+                    </div>
+                </form>
 
-<button id="analyzeBtn">Analyze Code</button>
-<h2>Result</h2>
+                <div class="result-grid">
+                    <article class="result-card">
+                        <span class="result-label">Error</span>
+                        <p id="errorValue">Awaiting analysis</p>
+                    </article>
+                    <article class="result-card">
+                        <span class="result-label">Explanation</span>
+                        <p id="explanationValue">We will explain the issue or confirm the code is valid.</p>
+                    </article>
+                    <article class="result-card">
+                        <span class="result-label">Suggested Fix</span>
+                        <p id="fixValue">Actionable code guidance appears here.</p>
+                    </article>
+                    <article class="result-card">
+                        <span class="result-label">Time Complexity</span>
+                        <p id="complexityValue">Estimated after parsing the AST.</p>
+                    </article>
+                </div>
 
-<p id="error" >Error:</p>
-<p id="explanation" >Explanation:</p>
-<p id="fix" >Suggested Fix:</p>
-<p id="complexity"></p>
+                <article class="suggestions-panel">
+                    <div class="section-heading compact">
+                        <div>
+                            <p class="section-kicker">Code Review</p>
+                            <h3>Suggestions</h3>
+                        </div>
+                    </div>
+                    <ul id="suggestionsList" class="suggestion-list">
+                        <li>Static review suggestions will appear here.</li>
+                    </ul>
+                </article>
+            </section>
 
-<script src="script.js"></script>
+            <section class="panel" id="repo-panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Core Feature 02</p>
+                        <h2>GitHub Repository Analyzer</h2>
+                    </div>
+                    <span class="badge">REST API</span>
+                </div>
 
+                <form id="repo-form" class="panel-form">
+                    <label for="repoUrl" class="field-label">Repository URL</label>
+                    <input id="repoUrl" type="url" placeholder="https://github.com/django/django">
+                    <div class="form-actions">
+                        <button type="submit" class="primary-button">Analyze Repository</button>
+                        <p id="repoStatus" class="status-text">Paste a public GitHub repository URL.</p>
+                    </div>
+                </form>
+
+                <div class="repo-grid">
+                    <article class="metric-card">
+                        <span class="result-label">Repo Name</span>
+                        <p id="repoName">Not loaded</p>
+                    </article>
+                    <article class="metric-card">
+                        <span class="result-label">Owner</span>
+                        <p id="repoOwner">Not loaded</p>
+                    </article>
+                    <article class="metric-card">
+                        <span class="result-label">Language</span>
+                        <p id="repoLanguage">Not loaded</p>
+                    </article>
+                    <article class="metric-card">
+                        <span class="result-label">Stars</span>
+                        <p id="repoStars">Not loaded</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Core Feature 03</p>
+                        <h2>Learning Progress Tracker</h2>
+                    </div>
+                    <span class="badge">SQLite / PostgreSQL</span>
+                </div>
+                <p class="tracker-copy">
+                    Every code analysis is stored in the database so you can inspect your recent work and discuss persistence in interviews.
+                </p>
+                <ul id="historyList" class="history-list">
+                    <li class="history-empty">No analyses yet. Run your first check to populate the tracker.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
